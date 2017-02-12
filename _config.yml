@@ -3,10 +3,12 @@ title: Akhil Shah, PhD
 email: akhil137@gaplessmode.com
 description: > # this means to ignore newlines until "baseurl:"
   Scalable Machine Learning
+  Scalable Machine Learning
+  Scalable Machine Learning
 # baseurl: "/" # the subpath of your site, e.g. /blog/
 url: "http://gaplessmode.com" # the base hostname & protocol for your site
-twitter_username: JAlexBranham
-github_username:  jabranham
+#twitter_username: JAlexBranham
+github_username:  ars137
 permalink: /blog/:year/:month/:title.html
 gems:
   - jekyll-sitemap
