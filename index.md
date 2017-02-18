@@ -1,5 +1,6 @@
 ---
 layout: default
+title: Counterfactual Estimation via Causal Inference
 ---
 
 Here's how you link to a [webpage in your site](/teaching/), and
