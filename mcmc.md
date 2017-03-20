@@ -1,3 +1,9 @@
+---
+layout: page
+title: MCMC
+permalink: /MCMC/
+---
+
 R Markdown
 ----------
 
