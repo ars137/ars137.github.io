@@ -1,0 +1,43 @@
+---
+output: 
+  md_document:
+    variant: markdown_github
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r cars}
+summary(cars)
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+
+#QR factorization for rank deficient least squares
+This is from [Pollard](http://www.stat.yale.edu/~pollard/Courses/312.fall2016/Handouts/QR.pdf).
+
+Lets create linearly dependent data matrix X
+```{r lindep}
+set.seed(10)   # for reproducibility
+mydata <- data.frame(y=rnorm(10),
+	x1=1:10,x2= 11:20, x3= 0.5*(1:10)-3*(11:20))
+out <- lm(y ~ ., data=mydata)
+summary(out) 
+```
+The lm function in R uses QR factorization.  When rank deficient (e.g. X will have a null space) we can still use QR as above and get most general solution, or we can use SVD to compute psuedoinverse which computes the min-norm solution for \beta.  The QR general solution in the rank deficient case shows that the easiest specific solution is to set the p-r components of \beta to zero, which is what R does.  See [Lambers](www.math.usm.edu/lambers/mat610/sum10/lecture11.pdf).  To get the min norm solution from the QR factorizatin imposes conditions that are related to the pseudo inverse as explained, but the SVD provides an orthogonal decomposition of \beta into the the R(X^T) and N(X) components, thus we can use it (via pseudoinverse) to get min norm (e.g. choosing the specific solution where we have zero contribution from the null-space compoenent).   
+
