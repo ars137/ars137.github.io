@@ -30,7 +30,7 @@ Including Plots
 
 You can also embed plots, for example:
 
-![](./linReg_files/figure-markdown_github/pressure-1.png)
+![](../linReg_files/figure-markdown_github/pressure-1.png)
 
 Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
 
@@ -68,4 +68,4 @@ summary(out)
     ## Multiple R-squared:  0.05903,    Adjusted R-squared:  -0.05859
     ## F-statistic: 0.5019 on 1 and 8 DF,  p-value: 0.4988
 
-The lm function in R uses QR factorization. When rank deficient (e.g. X will have a null space) we can still use QR as above and get most general solution, or we can use SVD to compute psuedoinverse which computes the min-norm solution for . The QR general solution in the rank deficient case shows that the easiest specific solution is to set the p-r components of to zero, which is what R does. See [Lambers](www.math.usm.edu/lambers/mat610/sum10/lecture11.pdf). To get the min norm solution from the QR factorizatin imposes conditions that are related to the pseudo inverse as explained, but the SVD provides an orthogonal decomposition of into the the R(X^T) and N(X) components, thus we can use it (via pseudoinverse) to get min norm (e.g. choosing the specific solution where we have zero contribution from the null-space compoenent).
+The lm function in R uses QR factorization. When rank deficient (e.g. X will have a null space) we can still use QR as above and get most general solution, or we can use SVD to compute psuedoinverse which computes the min-norm solution for . The QR general solution in the rank deficient case shows that the easiest specific solution is to set the p-r components of to zero, which is what R does. See [Lambers](www.math.usm.edu/lambers/mat610/sum10/lecture11.pdf). To get the min norm solution from the QR factorization imposes conditions that are related to the pseudo inverse as explained, but the SVD provides an orthogonal decomposition of the regression coefficient vector into subspace components  R(X^T) and N(X). thus we can use it (via pseudoinverse) to get min norm (e.g. choosing the specific solution where we have zero contribution from the null-space component).
